@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Header from '../Components/Header';
 
 function ContactPage () {
@@ -24,7 +24,7 @@ function ContactPage () {
                 </svg>
               </td>
               <td>
-                <a href="https://line.me/ti/p/%40kongsalak" target="_blank">
+                <a href="https://line.me/ti/p/%40kongsalak" target="_blank" style={{textDecoration:"none"}}>
                   @kongsalak
                 </a>
               </td>
@@ -39,7 +39,7 @@ function ContactPage () {
                 </svg>
               </td>
               <td>
-                <a href="https://www.facebook.com/kongsalakofficial" target="_blank">
+                <a href="https://www.facebook.com/kongsalakofficial" target="_blank" style={{textDecoration:"none"}}>
                   เพจกองสลาก
                 </a>
               </td>
@@ -55,7 +55,7 @@ function ContactPage () {
                 </svg>
               </td>
               <td>
-                <a href="https://m.me/kongsalak" target="_blank">
+                <a href="https://m.me/kongsalak" target="_blank" style={{textDecoration:"none"}}>
                   อินบอกซ์กองสลาก
                 </a>
               </td>
@@ -71,7 +71,7 @@ function ContactPage () {
                 </svg>
               </td>
               <td>
-                <a href="tel:0867577777">086-757-7777</a>
+                <a href="tel:0867577777" style={{textDecoration:"none"}}>086-757-7777</a>
               </td>
             </tr>
           </table>

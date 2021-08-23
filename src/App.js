@@ -1,8 +1,8 @@
 //import logo from './logo.svg';
 import React from 'react';
 import {Route} from 'react-router-dom';
-//import Header from './Components/Header';
 import ContactPage from './Pages/ContactPage';
+
 
 import './App.css';
 import CheckPage from './Pages/CheckPage';
@@ -13,7 +13,7 @@ import HomePage from './Pages/HomePage';
  
 function App() {
   return (
-    <div className="apsp">
+    <div className="app">
     <main>
     {/* <Switch> */}
       <Route exact key ="home" path ="/" component = {HomePage}/>

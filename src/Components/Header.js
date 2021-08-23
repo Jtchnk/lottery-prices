@@ -1,5 +1,6 @@
 import React from "react";
-import { useHistory, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
+import cn from "classnames"
 
 function Header() {
   // const history = useHistory();
@@ -17,23 +18,23 @@ function Header() {
     <div>
      
           <div className="nav">
-            <li>
+            <li className={cn({ active: pathname === '/' })}>
               <Link to="/" style={{textDecoration: "none"}}>
                 <i className="i-home"></i>
                 <span style={{ color: pathname === "/" ? "#d4af37" : "black"}}>หน้าหลัก</span>
               </Link>
             </li>
 
-            <li>
+            <li className={cn({ active: pathname === '/Check' })}>
               <Link to="/Check" style={{textDecoration: "none"}}>
-                <i className="i-home"></i>
+                <i className="i-check"></i>
                 <span style={{ color: pathname === "/Check" ? "#d4af37" : "black"}}>ตรวจลอตเตอรี่</span>
               </Link>
             </li>
 
-            <li>
+            <li className={cn({ active: pathname === '/Contact' })}>
               <Link to="/Contact" style={{textDecoration: "none"}}>
-                <i className="i-home"></i>
+                <i className="i-contact"></i>
                 <span style={{ color: pathname === "/Contact" ? "#d4af37" : "black"}}>ติดต่อเรา</span>
               </Link>
             </li>
