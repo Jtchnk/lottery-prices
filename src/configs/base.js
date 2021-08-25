@@ -1,6 +1,6 @@
 const config = {
   baseURLAPI: 'http://localhost:5001/kslproject/asia-east2/api/v1',
-  apiHost: 'http://localhost:5001/kslproject/asia-east2/api/v1',
+  apiHost: !process.env.NODE_ENV || process.env.NODE_ENV === 'development' ? 'http://localhost:5001/kslproject/asia-east2/api/v1' : 'https://asia-east2-kslproject.cloudfunctions.net/api/v1',
   lineClientId: '1655547650',
   lineClientSecret: '3e7bb1f596191d03828a7a530da40a75',
   firebase: {

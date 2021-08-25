@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import cn from "classnames"
+import cn from "classnames";
 
 function Header() {
   // const history = useHistory();
@@ -16,30 +16,39 @@ function Header() {
 
   return (
     <div>
-     
-          <div className="nav">
-            <li className={cn({ active: pathname === '/' })}>
-              <Link to="/" style={{textDecoration: "none"}}>
-                <i className="i-home"></i>
-                <span style={{ color: pathname === "/" ? "#d4af37" : "black"}}>หน้าหลัก</span>
-              </Link>
-            </li>
+      <div className="nav">
+        <li className={cn({ active: pathname === "/" })}>
+          <Link to="/" style={{ textDecoration: "none" }}>
+            <i className="i-home"></i>
+            <span style={{ color: pathname === "/" ? "#d4af37" : "black" }}>
+              หน้าหลัก
+            </span>
+          </Link>
+        </li>
 
-            <li className={cn({ active: pathname === '/Check' })}>
-              <Link to="/Check" style={{textDecoration: "none"}}>
-                <i className="i-check"></i>
-                <span style={{ color: pathname === "/Check" ? "#d4af37" : "black"}}>ตรวจลอตเตอรี่</span>
-              </Link>
-            </li>
+        <li className={cn({ active: pathname === "/Check" })}>
+          <Link to="/Check" style={{ textDecoration: "none" }}>
+            <i className="i-check"></i>
+            <span
+              style={{ color: pathname === "/Check" ? "#d4af37" : "black" }}
+            >
+              ตรวจลอตเตอรี่
+            </span>
+          </Link>
+        </li>
 
-            <li className={cn({ active: pathname === '/Contact' })}>
-              <Link to="/Contact" style={{textDecoration: "none"}}>
-                <i className="i-contact"></i>
-                <span style={{ color: pathname === "/Contact" ? "#d4af37" : "black"}}>ติดต่อเรา</span>
-              </Link>
-            </li>
-          </div>
-      
+        <li className={cn({ active: pathname === "/Contact" })}>
+          <Link to="/Contact" style={{ textDecoration: "none" }}>
+            <i className="i-contact"></i>
+            <span
+              style={{ color: pathname === "/Contact" ? "#d4af37" : "black" }}
+            >
+              ติดต่อเรา
+            </span>
+          </Link>
+        </li>
+      </div>
+
       <div className="head">
         <Link to="/">
           <img
