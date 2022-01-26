@@ -38,6 +38,7 @@ const CheckPage = () => {
           return aDate.getTime() - bDate.getTime();
         });
         setRoundDate(sortedStrings);
+        sortedStrings.pop()
         setSelectedRoundDate(sortedStrings[sortedStrings.length - 1]);
       } catch (err) {
         console.log(err);
@@ -66,6 +67,7 @@ const CheckPage = () => {
   // };
 
   const fetchPrize = async () => {
+    console.log("select rd =>",selectedRoundDate)
     try {
       const _prizes = await callApi({
         url: `/prizes/rounds/${selectedRoundDate}/annoucement`,

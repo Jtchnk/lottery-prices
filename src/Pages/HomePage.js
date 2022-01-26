@@ -7,7 +7,7 @@ import { getRoundDateString } from "../helpers/helpers";
 const Home = () => {
   const [prizes, setPrizes] = useState([]);
   const [roundDate, setRoundDate] = useState([]);
-  const [selectedRoundDate, setSelectedRoundDate] = useState();
+  const [selectedRoundDate, setSelectedRoundDate] = useState([]);
   // const webConfig = {roundDate : '01-02-64'}
 
   //useSelector((state) => state.config);
@@ -25,6 +25,8 @@ const Home = () => {
     const fetchRoundDate = async () => {
       try {
         const response = await callApi({ url: "/summaries/rounds" });
+        console.log("response===>>>",response)
+        //console.log("response===>>>",response)
         const temp = response.map((data) => data.roundDate);
         var sortedStrings = temp.sort(function (a, b) {
           var aComps = a.split("-");
@@ -34,8 +36,14 @@ const Home = () => {
           return aDate.getTime() - bDate.getTime();
         });
         setRoundDate(sortedStrings);
-        setSelectedRoundDate(sortedStrings[sortedStrings.length - 1]);
+        console.log("sort",sortedStrings);
+        sortedStrings.pop()
+        setSelectedRoundDate(sortedStrings[sortedStrings.length-1]);
+        //console.log("ttttt",test);
+        //setTest(sortedStrings(sortedStrings.length-1))
+        //console.log("temppp",temp);
       } catch (err) {
+
         console.log(err);
       }
     };
@@ -44,30 +52,41 @@ const Home = () => {
 
   useEffect(() => {
     fetchPrize();
-    console.log("fetch price");
+    //console.log("fetch price");
   }, [selectedRoundDate]);
 
+  console.log("selectedRoundDate :",selectedRoundDate)
+  
   const fetchPrize = async () => {
     try {
       const _prizes = await callApi({
         url: `/prizes/rounds/${selectedRoundDate}/annoucement`,
       });
       setPrizes(_prizes);
-      console.log(_prizes);
+      console.log("_prizes===>>>",_prizes);
+      
+      
     } catch (err) {
       setPrizes([]);
+      // let roundDatePop = [...roundDate]
+      // roundDatePop.pop()
+      // setTest(roundDatePop)
+      //console.log("rounDateeeee",roundDatePop);
       console.log("err", err);
     }
   };
 
-  console.log(prizes.second);
+  //console.log("test===>>>",test)
 
   return (
     <div>
       <Header />
       <div className="content-box">
-        <h1>ลอตเตอรี่ออนไลน์ ซื้อเองง่าย จ่ายโดยรัฐบาล</h1>
-        <h1 className="text-blue">ราคา 80 บาท ไม่มีค่าบริการ</h1>
+        <p style={{textAlign:"center"}}>
+          <img src="logoksl.png" width="150"  />
+        </p>
+        {/* <h1>ลอตเตอรี่ออนไลน์ ซื้อเองง่าย จ่ายโดยรัฐบาล</h1>
+        <h1 className="text-blue">ราคา 80 บาท ไม่มีค่าบริการ</h1> */}
         <div className="sec-box sec-announce text-center">
           <div className="logo">
             <img
@@ -79,9 +98,9 @@ const Home = () => {
             />
           </div>
           <h2 className="sec-title2">ผลรางวัลสลากกินแบ่งรัฐบาล</h2>
-
+ {/* {prizes.length !== 0 ? ( */}
           <div className="round">
-            งวดประจำวันที่
+            งวดประจำวันที่ 
             <select
               className="select-date2"
               value={selectedRoundDate}
@@ -91,8 +110,9 @@ const Home = () => {
               {roundDate.map((data) => (
                 <option value={data}>{getRoundDateString(data)}</option>
               ))}
-            </select>
-          </div>
+            </select> 
+            </div>
+          {/* </div>): (<div></div>)} */}
           {prizes.length !== 0 ? (
             <>
               <div className="prize-1">
